@@ -17,14 +17,26 @@
     <p>Websiteme hoşgeldiniz!</p>
 
     
-    <audio autoplay loop>
+    <audio id="audioPlayer" autoplay>
     	<source src="baga1.mp3" type="audio/mpeg">
         Tarayıcınız müzik dosyasını desteklemiyor.
-        <source src="baga.mp3" type="audio/mpeg">
-        Tarayıcınız müzik dosyasını desteklemiyor.
+        
         
     </audio>
     
+    <script>
+    	const audioPlayer=document.getElementById('audioPlayer');
+    	const songs = ['baga1.mp3', 'baga.mp3'];
+    	let currentSong = 0;
+    	audioPlayer.addEventListener('ended', function() {
+    		currentSong++;
+    		if( currentSong < songs.length){
+    		audioPlayer.src = songs[currentSong];
+    		audioPlayer.play();
+    		}
+    	});
+    	</script>
+    		
     <footer>
         <p>&copy; 2024 güzel bir yıldır.</p>
     </footer>
